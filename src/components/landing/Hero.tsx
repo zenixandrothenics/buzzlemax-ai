@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { Bot, BarChart3, Zap } from 'lucide-react'
+import { Bot, BarChart3, Zap, Sparkles, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { COMPANY_INFO } from '@/lib/constants'
 import { cn } from '@/lib/utils'
@@ -151,14 +151,24 @@ export function Hero({ onContactSales }: HeroProps) {
             >
               Request a Custom Quote
             </Button>
-            <Button 
-              variant="outline" 
-              size="lg" 
-              className="w-full sm:w-auto text-base px-8 py-3 gap-2 font-medium"
-              onClick={() => onContactSales('Consultation')}
+            <a
+              href="https://zenixandrothenics.github.io/buzzlemax-chatbot-showcase-website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg text-base font-semibold px-8 py-3',
+                'bg-gradient-to-r from-violet-600 to-indigo-600',
+                'text-white shadow-md shadow-violet-500/25',
+                'hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/35',
+                'active:scale-[0.98] transition-all duration-300',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2'
+              )}
+              aria-label="Explore AI Demos — opens in a new tab"
             >
-              Schedule Consultation
-            </Button>
+              <Sparkles className="h-4 w-4 shrink-0" />
+              <span>Explore AI Demos</span>
+              <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-80" />
+            </a>
           </motion.div>
         </motion.div>
 
