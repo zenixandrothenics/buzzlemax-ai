@@ -51,10 +51,10 @@ export function Pricing({ onContactSales }: PricingProps) {
             Pricing
           </span>
           <h2 id="pricing-heading" className="section-title text-white">
-            Custom AI Solutions from $300
+            Bespoke AI Solutions & Transparent Quotes
           </h2>
           <p className="section-description text-gray-400">
-            Don't pay for an expensive AI suite when you only need one solution. We build the specific AI assistant or automation your business needs — from website chatbots to WhatsApp, Instagram, voice and custom AI systems.
+            Invest in targeted AI capabilities engineered to drive measurable business outcomes. From 24/7 lead qualification and automated FAQ resolution to omnichannel workflows and custom systems, get an exact proposal tailored to your requirements.
           </p>
         </motion.div>
 
@@ -73,32 +73,52 @@ export function Pricing({ onContactSales }: PricingProps) {
                 <div className="flex-1 text-center md:text-left">
                   <div className="inline-flex items-center rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-sm font-semibold text-primary mb-4">
                     <Sparkles className="h-4 w-4 mr-2" />
-                    Entry-Level Custom AI
+                    Bespoke AI Architecture
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
-                    Custom AI Solutions Start from $300
+                    Custom AI Chatbots & Workflow Automation
                   </h3>
-                  <p className="text-gray-300 text-sm md:text-base max-w-xl leading-relaxed">
-                    Get a focused AI solution built around your exact needs — whether it's a website chatbot, FAQ assistant, lead-capture AI, or simple automation. Pay only for what you actually need.
+                  <p className="text-gray-300 text-sm md:text-base max-w-xl leading-relaxed mb-4">
+                    Accelerate your revenue engine with custom-trained AI assistants that qualify leads, answer FAQs in real time, and route prospects into your CRM. Pay only for the specific capabilities your business needs.
                   </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300">
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary shrink-0" />
+                      <span>24/7 Lead Capture & Intent Scoring</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary shrink-0" />
+                      <span>Automated FAQ & Support Resolution</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary shrink-0" />
+                      <span>Custom Knowledge Base Ingestion</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Check className="h-4 w-4 text-primary shrink-0" />
+                      <span>Seamless CRM & Calendar Integration</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center gap-4">
+                <div className="flex flex-col items-center gap-4 text-center md:text-right shrink-0">
                   <div className="text-center">
-                    <div className="text-5xl md:text-6xl font-bold text-white mb-1">$300</div>
-                    <div className="text-sm text-gray-400">Starting Price</div>
+                    <div className="text-3xl md:text-4xl font-bold text-white mb-1">Custom Quote</div>
+                    <div className="text-xs font-medium text-primary">Scoped to Your Business Scope</div>
+                    <div className="text-[11px] text-gray-400 mt-0.5">Value-driven, transparent pricing</div>
                   </div>
                   <Button
                     size="lg"
                     className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-3 shadow-lg hover:shadow-xl transition-all"
-                    onClick={() => onContactSales('custom-ai')}
+                    onClick={() => onContactSales('Custom AI Chatbot')}
                   >
-                    Tell Us What You Need
+                    Request a Custom Quote
+                    <ArrowRight className="h-4 w-4 ml-2" />
                   </Button>
                 </div>
               </div>
               <div className="mt-8 pt-6 border-t border-white/10">
                 <p className="text-xs text-gray-400 text-center">
-                  *Starting price for one simple/custom AI solution. More complex systems with integrations, multiple platforms, or advanced workflows may cost more.
+                  *Every project is individually scoped based on required integrations, workflow complexity, and volume. Never pay for unused SaaS bloat.
                 </p>
               </div>
             </CardContent>
@@ -113,9 +133,9 @@ export function Pricing({ onContactSales }: PricingProps) {
           className="mb-8"
         >
           <div className="text-center mb-8">
-            <h3 className="text-xl font-semibold text-white mb-2">Advanced Multi-Platform Solutions</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">Tailored AI Automation Packages</h3>
             <p className="text-sm text-gray-400">
-              Comprehensive AI automation packages for businesses requiring multiple platforms, advanced integrations, or enterprise-scale systems.
+              Enterprise-ready AI systems configured for multi-channel scaling, CRM sync, and advanced automations.
             </p>
           </div>
         </motion.div>

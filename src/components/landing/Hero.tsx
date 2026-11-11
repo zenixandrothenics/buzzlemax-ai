@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { Bot, BarChart3, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { COMPANY_INFO } from '@/lib/constants'
@@ -23,9 +23,9 @@ const itemVariants = {
 }
 
 const featureCards = [
-  { title: 'Website Chatbots', description: 'Starting from $300', icon: Bot },
-  { title: 'WhatsApp & Instagram AI', description: 'Starting from $300', icon: BarChart3 },
-  { title: 'Voice AI Agents', description: 'Starting from $300', icon: Zap },
+  { title: 'Website Chatbots', description: '24/7 lead capture & FAQ automation', icon: Bot },
+  { title: 'WhatsApp & Instagram AI', description: 'Instant conversion & smart routing', icon: BarChart3 },
+  { title: 'Voice AI Agents', description: 'Inbound booking & client triage', icon: Zap },
 ]
 
 
@@ -36,6 +36,7 @@ type HeroProps = {
 export function Hero({ onContactSales }: HeroProps) {
   const ref = React.useRef<HTMLDivElement>(null)
   const isInView = useInView(ref, { once: true })
+  const prefersReducedMotion = useReducedMotion()
   const [isAnimated, setIsAnimated] = React.useState(false)
 
   React.useEffect(() => {
@@ -56,7 +57,7 @@ export function Hero({ onContactSales }: HeroProps) {
 
         {/* Ethereal Violet Aurora Wave 1: Neon Amethyst (#A855F7) & Royal Purple (#581C87) Top-Left Stream */}
         <motion.div
-          animate={{
+          animate={prefersReducedMotion ? undefined : {
             x: ['-6%', '6%', '-6%'],
             y: ['-3%', '5%', '-3%'],
             scale: [1, 1.15, 1],
@@ -64,13 +65,13 @@ export function Hero({ onContactSales }: HeroProps) {
             opacity: [0.7, 0.9, 0.7],
           }}
           transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-[25%] left-[-15%] h-[50rem] w-[60rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.42)_0%,rgba(88,28,135,0.36)_45%,rgba(11,8,19,0)_75%)] blur-[120px]"
+          className="absolute -top-[25%] left-[-15%] h-[40rem] md:h-[50rem] w-[50rem] md:w-[60rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.42)_0%,rgba(88,28,135,0.36)_45%,rgba(11,8,19,0)_75%)] blur-[60px] md:blur-[100px]"
           style={{ willChange: 'transform, opacity' }}
         />
 
         {/* Ethereal Violet Aurora Wave 2: Royal Purple (#581C87) & Neon Amethyst (#A855F7) Top-Right Stream */}
         <motion.div
-          animate={{
+          animate={prefersReducedMotion ? undefined : {
             x: ['5%', '-5%', '5%'],
             y: ['4%', '-4%', '4%'],
             scale: [1.1, 0.95, 1.1],
@@ -78,20 +79,20 @@ export function Hero({ onContactSales }: HeroProps) {
             opacity: [0.65, 0.85, 0.65],
           }}
           transition={{ duration: 22, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -top-[20%] right-[-15%] h-[55rem] w-[65rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(88,28,135,0.48)_0%,rgba(168,85,247,0.32)_50%,rgba(11,8,19,0)_75%)] blur-[130px]"
+          className="absolute -top-[20%] right-[-15%] h-[45rem] md:h-[55rem] w-[55rem] md:w-[65rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(88,28,135,0.48)_0%,rgba(168,85,247,0.32)_50%,rgba(11,8,19,0)_75%)] blur-[60px] md:blur-[100px]"
           style={{ willChange: 'transform, opacity' }}
         />
 
         {/* Ethereal Violet Aurora Wave 3: Bottom Amethyst Flow */}
         <motion.div
-          animate={{
+          animate={prefersReducedMotion ? undefined : {
             x: ['-4%', '4%', '-4%'],
             y: ['5%', '-3%', '5%'],
             scale: [0.95, 1.08, 0.95],
             opacity: [0.55, 0.75, 0.55],
           }}
           transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute -bottom-[25%] left-[10%] h-[45rem] w-[70rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.32)_0%,rgba(88,28,135,0.40)_55%,rgba(11,8,19,0)_80%)] blur-[140px]"
+          className="absolute -bottom-[25%] left-[10%] h-[35rem] md:h-[45rem] w-[55rem] md:w-[70rem] rounded-[100%] bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.32)_0%,rgba(88,28,135,0.40)_55%,rgba(11,8,19,0)_80%)] blur-[70px] md:blur-[110px]"
           style={{ willChange: 'transform, opacity' }}
         />
 
@@ -131,14 +132,14 @@ export function Hero({ onContactSales }: HeroProps) {
             variants={itemVariants}
             className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-4 leading-relaxed"
           >
-            From website chatbots to WhatsApp, Instagram, voice and custom AI assistants — BuzzleMax builds the specific AI you need, starting from $300. No need to pay for a massive AI suite when one focused solution will do the job.
+            From intelligent website chatbots to WhatsApp, Instagram, voice and custom AI assistants — BuzzleMax engineers bespoke AI solutions that qualify leads, automate FAQs, and scale operations.
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="text-sm text-muted-foreground/60 max-w-2xl mx-auto mb-6 leading-relaxed"
           >
-            Don't pay for expensive AI subscriptions packed with features you don't need. We build custom AI solutions around exactly what your business needs — so you only pay for what you actually need.
+            Every solution is custom-scoped around your exact business requirements, so you only pay for the capabilities that deliver measurable ROI.
           </motion.p>
 
 
@@ -146,15 +147,15 @@ export function Hero({ onContactSales }: HeroProps) {
             <Button
               size="lg"
               className="w-full sm:w-auto text-base px-8 py-3 font-semibold shadow-lg hover:shadow-xl transition-shadow"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => onContactSales('Custom AI Solution')}
             >
-              Build My AI
+              Request a Custom Quote
             </Button>
             <Button 
               variant="outline" 
               size="lg" 
               className="w-full sm:w-auto text-base px-8 py-3 gap-2 font-medium"
-              onClick={() => onContactSales()}
+              onClick={() => onContactSales('Consultation')}
             >
               Schedule Consultation
             </Button>
@@ -163,17 +164,17 @@ export function Hero({ onContactSales }: HeroProps) {
 
         <div className="relative mt-16 lg:mt-24 h-64 sm:h-80 lg:h-96">
           {featureCards.map((card, index) => {
-            const floatY = index % 2 === 0 ? ['-10px', '10px', '-10px'] : ['10px', '-10px', '10px']
+            const floatY = index % 2 === 0 ? ['-8px', '8px', '-8px'] : ['8px', '-8px', '8px']
             const floatDuration = index % 2 === 0 ? 4 : 5
             const Icon = card.icon
             return (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={isAnimated ? { opacity: 1, scale: 1, y: floatY } : { opacity: 0, scale: 0.8 }}
+                animate={isAnimated ? { opacity: 1, scale: 1, y: prefersReducedMotion ? 0 : floatY } : { opacity: 0, scale: 0.8 }}
                 transition={{
                   scale: { duration: 0.6, delay: 0.8 + index * 0.2 },
-                  y: { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' },
+                  y: prefersReducedMotion ? undefined : { duration: floatDuration, repeat: Infinity, ease: 'easeInOut' },
                 }}
                 className={cn(
                   'absolute glass rounded-2xl p-4 shadow-2xl border border-white/10',
@@ -192,7 +193,7 @@ export function Hero({ onContactSales }: HeroProps) {
                   </div>
                 </div>
                 <div className="flex items-end justify-between">
-                  <span className="text-xs text-primary font-medium">Starting from $300</span>
+                  <span className="text-xs text-primary font-medium">Custom Scoped Solution</span>
                 </div>
               </motion.div>
             )

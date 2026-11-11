@@ -22,7 +22,7 @@ let lastFailureTime = 0
 let isCooldownMode = false
 const COOLDOWN_DURATION = 60000 // 1 minute cooldown
 const MAX_CONSECUTIVE_FAILURES = 3 // Enter cooldown after 3 failures
-const REQUEST_TIMEOUT = 15000 // 15 second timeout
+const REQUEST_TIMEOUT = 30000 // 30 second timeout (Worker allows up to 25s per provider)
 
 // ────────────────────────────────────────────────────────────────
 // Layer 1: Gemini API with retry logic

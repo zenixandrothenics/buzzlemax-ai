@@ -22,11 +22,18 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2 mb-4">
-              <img
-                src="/buzzlemax-logo.png"
-                alt="Buzzlemax AI Logo"
-                className="h-9 w-9 object-contain rounded-md"
-              />
+              <picture>
+                <source type="image/webp" srcSet="/buzzlemax-logo-128.webp" />
+                <img
+                  src="/buzzlemax-logo.png"
+                  alt="Buzzlemax AI Logo"
+                  width={36}
+                  height={36}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-9 w-9 object-contain rounded-md"
+                />
+              </picture>
               <span className="text-xl font-bold tracking-tight">
                 {COMPANY_INFO.name}
               </span>

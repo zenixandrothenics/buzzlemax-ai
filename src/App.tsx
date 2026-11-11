@@ -4,7 +4,6 @@ import { Route, Routes } from 'react-router-dom'
 import { PageLoader } from '@/components/common/PageLoader'
 import { ScrollManager } from '@/components/common/ScrollManager'
 import { ThemeProvider } from '@/hooks/use-theme'
-import { ChatWidget } from '@/components/ChatWidget'
 
 const LandingPage = React.lazy(async () => {
   const module = await import('@/pages/LandingPage')
@@ -15,6 +14,8 @@ const WebDevelopmentPage = React.lazy(async () => {
   const module = await import('@/pages/WebDevelopmentPage')
   return { default: module.WebDevelopmentPage }
 })
+
+const ChatWidget = React.lazy(() => import('@/components/ChatWidget'))
 
 function App() {
   return (
@@ -32,7 +33,9 @@ function App() {
           <Route path="/web-development" element={<WebDevelopmentPage />} />
         </Routes>
       </React.Suspense>
-      <ChatWidget />
+      <React.Suspense fallback={null}>
+        <ChatWidget />
+      </React.Suspense>
     </ThemeProvider>
   )
 }

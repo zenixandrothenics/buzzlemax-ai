@@ -116,5 +116,31 @@ export default defineConfig(function (_a) {
             port: 3000,
             open: true,
         },
+        build: {
+            target: 'es2020',
+            cssCodeSplit: true,
+            sourcemap: false,
+            chunkSizeWarningLimit: 600,
+            rollupOptions: {
+                output: {
+                    manualChunks: function (id) {
+                        if (id.includes('node_modules')) {
+                            if (id.includes('framer-motion')) {
+                                return 'vendor-motion';
+                            }
+                            if (id.includes('@radix-ui')) {
+                                return 'vendor-radix';
+                            }
+                            if (id.includes('lucide-react')) {
+                                return 'vendor-icons';
+                            }
+                            if (id.includes('react-dom') || id.includes('react-router-dom') || id.includes('/react/')) {
+                                return 'vendor-react';
+                            }
+                        }
+                    },
+                },
+            },
+        },
     };
 });

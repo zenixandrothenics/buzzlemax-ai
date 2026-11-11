@@ -10,17 +10,17 @@ const iconMap: Record<string, React.ElementType> = {
   'Revenue Generated': DollarSign,
 }
 
-function AnimatedCounter({ value }: { value: string }) {
+function AnimatedCounter({ value, active }: { value: string; active: boolean }) {
   const [display, setDisplay] = React.useState(0)
   const hasAnimated = React.useRef(false)
 
   React.useEffect(() => {
-    if (hasAnimated.current) return
+    if (!active || hasAnimated.current) return
     hasAnimated.current = true
 
     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''))
-    const duration = 2500
-    const steps = 60
+    const duration = 2000
+    const steps = 40
     const stepTime = duration / steps
     let current = 0
     const increment = numericValue / steps
@@ -35,7 +35,7 @@ function AnimatedCounter({ value }: { value: string }) {
     }, stepTime)
 
     return () => clearInterval(timer)
-  }, [value])
+  }, [value, active])
 
   const formatNumber = (num: number) => {
     if (value.includes('.')) return num.toFixed(1)
@@ -47,7 +47,7 @@ function AnimatedCounter({ value }: { value: string }) {
   const suffix = match ? match[3] : ''
 
   return (
-    <span>
+    <span className="tabular-nums">
       {prefix}{formatNumber(display)}{suffix}
     </span>
   )
@@ -84,7 +84,7 @@ export function Stats() {
                   </div>
                 </div>
                 <div className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2 tracking-tight">
-                  <AnimatedCounter value={stat.value} />
+                  <AnimatedCounter value={stat.value} active={isInView} />
                 </div>
                 <p className="text-primary-foreground/80 text-xs sm:text-sm lg:text-base font-medium">
                   {stat.label}

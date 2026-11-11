@@ -12,12 +12,15 @@ import { CTASection } from '@/components/landing/CTASection'
 import { AISolutions } from '@/components/landing/AISolutions'
 import { FAQ } from '@/components/landing/FAQ'
 import { Contact } from '@/components/landing/Contact'
-import { MeetTheTeam } from '@/components/landing/MeetTheTeam'
 import { Footer } from '@/components/landing/Footer'
-import { ContactSalesModal } from '@/components/landing/ContactSalesModal'
 import { PageSEO } from '@/components/common/PageSEO'
 import { COMPANY_INFO } from '@/lib/constants'
 import { DEFAULT_SEO, SITE_URL } from '@/lib/site'
+
+const ContactSalesModal = React.lazy(async () => {
+  const mod = await import('@/components/landing/ContactSalesModal')
+  return { default: mod.ContactSalesModal }
+})
 
 export function LandingPage() {
   const [contactSalesOpen, setContactSalesOpen] = React.useState(false)
@@ -55,16 +58,19 @@ export function LandingPage() {
         <AISolutions onContactSales={openContactSales} />
         <FAQ />
         <Contact />
-        <MeetTheTeam />
         <CTASection onContactSales={openContactSales} />
       </main>
       <Footer />
 
-      <ContactSalesModal
-        open={contactSalesOpen}
-        onOpenChange={setContactSalesOpen}
-        selectedPlan={contactSalesSelectedPlan}
-      />
+      {contactSalesOpen && (
+        <React.Suspense fallback={null}>
+          <ContactSalesModal
+            open={contactSalesOpen}
+            onOpenChange={setContactSalesOpen}
+            selectedPlan={contactSalesSelectedPlan}
+          />
+        </React.Suspense>
+      )}
     </div>
   )
 }

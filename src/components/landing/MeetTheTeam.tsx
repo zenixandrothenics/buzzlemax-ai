@@ -110,18 +110,21 @@ export function MeetTheTeam() {
                   >
                     {member.image ? (
                       <>
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          loading="lazy"
-                          decoding="async"
-                          width="144"
-                          height="144"
-                          className="h-36 w-36 rounded-full object-cover border-2 border-amber-500/50 shadow-2xl"
-                          style={{
-                            boxShadow: '0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(245, 158, 11, 0.1)',
-                          }}
-                        />
+                        <picture>
+                          <source type="image/webp" srcSet="/images/swapnanil.webp" />
+                          <img
+                            src={member.image}
+                            alt={member.name}
+                            loading="lazy"
+                            decoding="async"
+                            width="144"
+                            height="144"
+                            className="h-36 w-36 rounded-full object-cover border-2 border-amber-500/50 shadow-2xl"
+                            style={{
+                              boxShadow: '0 0 20px rgba(245, 158, 11, 0.3), 0 0 40px rgba(245, 158, 11, 0.1)',
+                            }}
+                          />
+                        </picture>
                         <div className="absolute inset-0 h-36 w-36 rounded-full bg-gradient-to-br from-amber-500/20 to-transparent blur-xl -z-10 opacity-50" />
                       </>
                     ) : (

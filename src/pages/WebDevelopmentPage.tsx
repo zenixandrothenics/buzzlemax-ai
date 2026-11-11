@@ -17,7 +17,6 @@ import {
 } from 'lucide-react'
 
 import { PageSEO } from '@/components/common/PageSEO'
-import { ContactSalesModal } from '@/components/landing/ContactSalesModal'
 import { Footer } from '@/components/landing/Footer'
 import { Navbar } from '@/components/landing/Navbar'
 import { Button } from '@/components/ui/button'
@@ -25,6 +24,11 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { navigateToHref } from '@/lib/navigation'
 import { COMPANY_INFO } from '@/lib/constants'
 import { SITE_URL, WEB_DEVELOPMENT_SEO } from '@/lib/site'
+
+const ContactSalesModal = React.lazy(async () => {
+  const mod = await import('@/components/landing/ContactSalesModal')
+  return { default: mod.ContactSalesModal }
+})
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -602,11 +606,15 @@ export function WebDevelopmentPage() {
       <Footer />
 
       {/* Contact Sales Modal */}
-      <ContactSalesModal
-        open={contactSalesOpen}
-        onOpenChange={setContactSalesOpen}
-        selectedPlan={contactSalesSelectedPlan}
-      />
+      {contactSalesOpen && (
+        <React.Suspense fallback={null}>
+          <ContactSalesModal
+            open={contactSalesOpen}
+            onOpenChange={setContactSalesOpen}
+            selectedPlan={contactSalesSelectedPlan}
+          />
+        </React.Suspense>
+      )}
     </div>
   )
 }

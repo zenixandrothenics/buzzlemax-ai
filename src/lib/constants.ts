@@ -52,27 +52,27 @@ export const FEATURES = [
 
 export const PRICING_PLANS = [
   {
-    name: 'CUSTOM AI SOLUTION',
+    name: 'CUSTOM AI CHATBOT',
     setupFee: 0,
-    setupFeeRupees: '$300',
+    setupFeeRupees: 'Custom Quote',
     price: 0,
-    priceRupees: 'Starting from',
-    period: 'one-time',
-    description: 'Get the specific AI you need — without paying for an expensive all-in-one package.',
+    priceRupees: 'Tailored to your scope',
+    period: 'custom',
+    description: 'Deploy an intelligent, custom-trained AI assistant that answers FAQs and captures high-intent leads 24/7.',
     features: [
-      'Website AI chatbot',
-      'FAQ & support AI',
-      'Lead-generation AI',
-      'Website sales assistant',
-      'WhatsApp AI',
-      'Instagram AI',
-      'Custom AI assistant',
+      '24/7 Intelligent Website Chatbot',
+      'Automated FAQ & Knowledge Base Resolution',
+      'Smart Lead Qualification & Discovery Flow',
+      'Instant Lead Capture & Notification Routing',
+      'Custom Brand Voice & Persona Alignment',
+      'Human Hand-Off & Contact Form Integration',
+      'Performance Analytics & Conversion Tracking',
     ],
     usage: [
-      'One focused AI solution tailored to your requirements.',
+      'Engineered for businesses looking to convert web traffic into booked clients.',
     ],
-    cta: 'Get Your AI',
-    popular: false,
+    cta: 'Request a Custom Quote',
+    popular: true,
   },
   {
     name: 'AI WORKFLOW',
@@ -94,7 +94,7 @@ export const PRICING_PLANS = [
     usage: [
       'For businesses that need AI connected to their existing workflow.',
     ],
-    cta: 'Discuss Your Workflow',
+    cta: 'Request a Custom Quote',
     popular: false,
   },
   {
@@ -117,7 +117,7 @@ export const PRICING_PLANS = [
     usage: [
       'Built around your business requirements.',
     ],
-    cta: 'Talk to BuzzleMax',
+    cta: 'Request a Custom Quote',
     popular: false,
     isEnterprise: true,
   },

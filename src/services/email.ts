@@ -1,4 +1,3 @@
-import emailjs from '@emailjs/browser'
 import { COMPANY_INFO } from '@/lib/constants'
 
 export const EMAILJS_ENV_VARIABLES = {
@@ -59,6 +58,7 @@ type EmailTemplateParams = {
 
 async function sendEmail(templateParams: EmailTemplateParams): Promise<void> {
   const { publicKey, serviceId, templateId } = getEmailJsConfig()
+  const { default: emailjs } = await import('@emailjs/browser')
 
   try {
     const response = await emailjs.send(serviceId, templateId, templateParams, {

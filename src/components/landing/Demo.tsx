@@ -92,19 +92,18 @@ export function Demo() {
 
                   <div className="absolute inset-0 bg-background/30 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-0" />
 
-                  <div className="relative">
+                  <div className="relative aspect-video w-full overflow-hidden bg-black/40">
                     <video
                       src={videoSrc}
                       controls
-                      preload="metadata"
+                      preload="none"
+                      poster="/images/demo-poster.webp"
                       playsInline
                       muted
+                      width={1280}
+                      height={720}
                       aria-label="BuzzleMax AI product demo video"
-                      style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
-                      }}
+                      className="h-full w-full object-cover"
                     />
                   </div>
                 </div>

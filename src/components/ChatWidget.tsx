@@ -174,24 +174,13 @@ export function ChatWidget() {
           quickActions: response.quickActions,
         }
         setMessages((prev) => [...prev, assistantMessage])
-      } catch (error) {
-        // This should rarely happen since the API client handles fallbacks
-        // But as a last resort, show a polished message
+      } catch {
         const errorMessage: ChatMessageItem = {
           id: `err-${Date.now()}`,
           role: 'assistant',
-          content: "I'd love to help with that. Tell the BuzzleMax team what you're looking to build and we'll help you figure out the right solution.",
+          content: "Sorry, the AI is temporarily unavailable. Please try again in a moment.",
           timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
           showLeadForm: true,
-          quickActions: [
-            { label: '🤖 Custom AI — from $300', prompt: 'I want a custom AI solution' },
-            { label: '🌐 Website', prompt: 'I need a website' },
-            { label: '💬 AI Chatbot', prompt: 'I need an AI chatbot' },
-            { label: '📱 WhatsApp AI', prompt: 'I need WhatsApp automation' },
-            { label: '📞 AI Voice', prompt: 'I need an AI voice assistant' },
-            { label: '💰 Pricing', prompt: 'What are your prices?' },
-            { label: '✉️ Contact BuzzleMax', prompt: 'I want to contact BuzzleMax' },
-          ]
         }
         setMessages((prev) => [...prev, errorMessage])
       } finally {

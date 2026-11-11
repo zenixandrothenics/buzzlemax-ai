@@ -45,7 +45,8 @@ export default [
       'supabase/functions/**',
       '.yoyo/**',
       '**/*.d.ts',
-      'src/server/*.js'
+      'src/server/*.js',
+      'src/lib/*.js'
     ],
   },
 ]

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X, Sun, Moon, ChevronDown, Sparkles } from 'lucide-react'
+import { Menu, X, Sun, Moon, ChevronDown, Sparkles, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { useTheme } from '@/hooks/use-theme'
@@ -204,11 +204,17 @@ export function Navbar({ onContactSales, compactLandingLayout = false }: NavbarP
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <div className="flex flex-shrink-0 items-center gap-2.5">
-            <img
-              src="/buzzlemax-logo.png"
-              alt="Buzzlemax AI Logo"
-              className="h-8 w-8 object-contain rounded-md md:h-9 md:w-9"
-            />
+            <picture>
+              <source type="image/webp" srcSet="/buzzlemax-logo-128.webp 128w, /buzzlemax-logo.webp 256w" sizes="(max-width: 768px) 32px, 36px" />
+              <img
+                src="/buzzlemax-logo.png"
+                alt="Buzzlemax AI Logo"
+                width={36}
+                height={36}
+                decoding="async"
+                className="h-8 w-8 object-contain rounded-md md:h-9 md:w-9"
+              />
+            </picture>
             <span className="text-sm font-bold tracking-tight text-foreground sm:text-base">
               {COMPANY_INFO.name}
             </span>
@@ -255,6 +261,27 @@ export function Navbar({ onContactSales, compactLandingLayout = false }: NavbarP
                 <DropdownMenuItem onClick={() => setTheme('system')}>System</DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {/* Explore AI Demos CTA */}
+            <a
+              href="https://zenixandrothenics.github.io/buzzlemax-chatbot-showcase-website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                'inline-flex items-center gap-1.5 h-9 px-3 rounded-lg text-xs font-semibold',
+                'bg-gradient-to-r from-violet-600 to-indigo-600',
+                'text-white shadow-md shadow-violet-500/25',
+                'hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/35',
+                'active:scale-[0.98] transition-all duration-300',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2',
+                'shrink-0'
+              )}
+              aria-label="Explore AI Demos — opens in a new tab"
+            >
+              <Sparkles className="h-3.5 w-3.5 shrink-0" />
+              <span>Explore AI Demos</span>
+              <ExternalLink className="h-3 w-3 shrink-0 opacity-80" />
+            </a>
 
             {/* Primary CTA */}
             <Button size="sm" onClick={() => onContactSales()} className="font-semibold">
@@ -336,6 +363,26 @@ export function Navbar({ onContactSales, compactLandingLayout = false }: NavbarP
               />
 
               <div className="flex flex-col gap-2 pt-3">
+                {/* Explore AI Demos — mobile */}
+                <a
+                  href="https://zenixandrothenics.github.io/buzzlemax-chatbot-showcase-website/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    'inline-flex w-full items-center justify-center gap-2 h-9 px-4 rounded-lg text-sm font-semibold',
+                    'bg-gradient-to-r from-violet-600 to-indigo-600',
+                    'text-white shadow-md shadow-violet-500/25',
+                    'hover:shadow-lg hover:shadow-violet-500/35',
+                    'active:scale-[0.98] transition-all duration-300',
+                    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2'
+                  )}
+                  onClick={() => setMobileOpen(false)}
+                  aria-label="Explore AI Demos — opens in a new tab"
+                >
+                  <Sparkles className="h-4 w-4 shrink-0" />
+                  <span>Explore AI Demos</span>
+                  <ExternalLink className="h-3.5 w-3.5 shrink-0 opacity-80" />
+                </a>
                 <Button
                   className="w-full"
                   onClick={() => {
