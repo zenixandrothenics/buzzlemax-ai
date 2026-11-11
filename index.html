@@ -37,13 +37,19 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     
+    <!-- Preload critical logo for rapid LCP -->
+    <link rel="preload" as="image" href="/buzzlemax-logo-128.webp" type="image/webp" fetchpriority="high" />
+
     <!-- Preconnect for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    </noscript>
     
     <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <link rel="dns-prefetch" href="https://api.emailjs.com" />
     
     <!-- Structured Data -->
@@ -67,8 +73,9 @@
     </script>
     
     <title>Buzzlemax AI | Premium AI Automation Agency</title>
-    <script type="module" crossorigin src="/assets/index-9Sh2MyBQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CEd-ncbB.css">
+    <script type="module" crossorigin src="/assets/index-BCOk9Bln.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/vendor-react-CP3YJam_.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BMM_OLq_.css">
   </head>
   <body>
     <div id="root"></div>
