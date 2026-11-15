@@ -4,7 +4,7 @@ export const COMPANY_INFO = {
   description:
     'Deploy AI chatbots, voice agents, omnichannel support, and CRM/email automation—built to qualify leads, book appointments, and run your workflows end-to-end.',
   contact: {
-    email: 'buzzlemaxofficial@gmail.com',
+    email: 'hello@buzzlemax.site',
   },
 }
 

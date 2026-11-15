@@ -153,7 +153,7 @@ export function ContactSalesModal({ open, onOpenChange, selectedPlan }: ContactS
     try {
       await sendContactSalesEmail(parsedValues)
       setStatus('success')
-      setStatusMessage('Request sent successfully. We will follow up from buzzlemaxofficial@gmail.com.')
+      setStatusMessage('Request sent successfully. We will follow up from hello@buzzlemax.site.')
       toast.success("Thank you! Your request has been sent successfully. We'll contact you within 24 hours.")
 
       form.reset({
@@ -198,8 +198,8 @@ export function ContactSalesModal({ open, onOpenChange, selectedPlan }: ContactS
         <div className="flex flex-col gap-5 px-6 pb-6 sm:px-8 sm:pb-8">
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Mail className="h-4 w-4" />
-            <a href="mailto:buzzlemaxofficial@gmail.com" className="hover:text-foreground transition-colors">
-              buzzlemaxofficial@gmail.com
+            <a href="mailto:hello@buzzlemax.site" className="hover:text-foreground transition-colors">
+              hello@buzzlemax.site
             </a>
           </div>
 

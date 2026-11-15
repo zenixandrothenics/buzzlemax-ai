@@ -21,7 +21,7 @@ Where to find them:
 
 All form submissions are sent to:
 
-`buzzlemaxofficial@gmail.com`
+`hello@buzzlemax.site`
 
 ## Template variables
 
